@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Pay from "../../Pay";
 
 function MainRegister() {
   const [step, setStep] = useState(1);
@@ -533,8 +534,7 @@ function MainRegister() {
             />
 
             <div className="payment mt-5 mb-5">
-              Click to payment
-              <button>Click To Pay</button>
+              <Pay />
             </div>
 
             <button type="button" onClick={handlePrevious}>

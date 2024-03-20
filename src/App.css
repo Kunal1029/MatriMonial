@@ -1,5 +1,6 @@
 :root {
-  --primaryColor: #FFF8E1;
+  /* --primaryColor: #FFF8E1; */
+  --primaryColor: white;
   --navColor: #B03060;
   --navtext: #F0F0F0;
   --textbg: #001F3F;
@@ -730,6 +731,21 @@ body {
 }
 
 /* adding bio end */
+
+
+/* My profile */
+.myprofile{
+  margin-top: 200px;
+}
+.myprofile button{
+  border: none;
+  padding: 12px 30px;
+  background-color: var(--navColor);
+  color: var(--navtext);
+  border-radius: 20px;
+  margin-top: 20px;
+}
+/* My profile end */
 
 @keyframes coming {
   0% {

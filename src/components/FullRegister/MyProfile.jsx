@@ -25,7 +25,7 @@ function MyProfile() {
   };
 
   return (
-    <>
+    <div className="mb-5 myprofile">
       <div className="mycontainer addbio d-md-flex mt-5">
         <div className="col-6">
           <img src="/image/salman.jpg" alt="" />
@@ -53,15 +53,20 @@ function MyProfile() {
                   placeholder="Introduce Yourself. e.g. I am software developer in xyz company. I love to play , watch movies etc.."
                   rows="3"
                 ></textarea>
-                <button>Save</button>
+                <button className="me-3">Save</button>
+                <button onClick={() => setIsEditBio(false)}>Cancel</button>
+
               </form>
-              <button onClick={() => setIsEditBio(false)}>Cancel</button>
             </div>
           )}
 
-          <button onClick={editingBio}>
+          {
+            !isEditBio && <button onClick={editingBio}>
             {updateBio.length >= 1 ? "Edit Bio" : "Add Bio"}
           </button>
+          }
+
+          
 
         </div>
       </div>
@@ -111,7 +116,7 @@ function MyProfile() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
