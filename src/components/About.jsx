@@ -1,8 +1,10 @@
+import { Header } from "./Header"
 
 function About() {
   return (
     
     <div className="mainAbout">
+       <Header />
       <div className="aboutus">
         <h1>About Us</h1>
       </div>

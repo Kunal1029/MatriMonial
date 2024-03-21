@@ -1,7 +1,7 @@
 import React, { useState } from "react";  
 import { Link } from "react-router-dom";
 
-function Recommendation() {
+export default function RecommendationDynamic() {
   const [cards, setCards] = useState([
     { id: 1, name: "Rahul Gupta", age: 58, isWish: false, image: "rahul" },
     { id: 2, name: "Salman Gangil", age: 55, isWish: false, image: "salman" },
@@ -57,22 +57,20 @@ function Recommendation() {
                 <br />
                 <b>Age</b> : {card.age}
               </p>
-              <button onClick={() => toggleWish(card.id)}>
+              <a onClick={() => toggleWish(card.id)}>
                 {card.isWish ? (
-                  <i className="fa-solid fa-heart"></i>
+                  <i className="fa-solid fa-heart text-danger fa-xl"></i>
                 ) : (
-                  <i className="fa-regular fa-heart"></i>
+                  <i className="fa-regular fa-heart text-danger fa-xl bg-transparent"></i>
                 )}
-              </button>
+              </a>
             </div>
 
-            {/* <div className="card-btn text-center mb-3">
-              <Register text="More details.." />
-            </div> */}
+            
 
             <div className="card-btn text-center mb-3">
               <Link
-                to="/register"
+                to="/singleprofile"
                 onClick={handleClick}
                 id="myctn"
                 className={`${isCtn ? "myctn" : "mybtn"}`}
@@ -87,4 +85,4 @@ function Recommendation() {
   );
 }
 
-export default Recommendation;
+

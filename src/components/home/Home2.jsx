@@ -1,13 +1,22 @@
+/* eslint-disable no-unused-vars */
 import Register from "../Register";
-import Recommendation from "../Recommendation";
 import ShaadhiFilter from "../ShaadhiFilter";
 import { Header2 } from "../Header";
+import RecommendationDynamic from "../RecommendationDynamic";
+import RecommandationAll from "../RecommandationAll";
+import { Link } from "react-router-dom";
+import { useState } from "react";
 
 function Home2() {
+  const [isCtn, setIsCtn] = useState(true);
+
+  const handleClick = () => {
+    setIsCtn((prevState) => !prevState);
+  };
   return (
     <>
       
-      <Header2 />
+      <Header2 /> 
      
       <div className="container-fluid oneD text-center home2">
 
@@ -91,10 +100,18 @@ function Home2() {
       {/* Recommandation */}
 
       <div className="mt-5 mb-5">
-        <Recommendation />
+        {/* <Recommendation /> */}
+        <RecommandationAll />
 
         <div className="recombtn">
-          <Register text="See More" />
+          <Link
+            to="/recommendationall"
+            onClick={handleClick}
+            id="myctn"
+            className={`${isCtn ? "myctn" : "mybtn"}`}
+          >
+            See More
+          </Link>
         </div>
       </div>
 

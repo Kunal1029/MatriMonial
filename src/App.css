@@ -671,6 +671,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  /* margin-top: 40; */
   /* transform: translate(0% , 60%); */
 }
 
@@ -681,7 +682,7 @@ body {
   flex-direction: row;
   /* gap: 20px; */
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 140px;
 }
 .progress-bar span{
   /* background-color: rgba(0, 0, 0, 0.098); */
@@ -747,6 +748,20 @@ body {
 }
 /* My profile end */
 
+
+/* summary  */
+.basic-detail-box h3, .personal-detail-box h3, .family-detail-box h3{
+ color: var(--navColor);
+}
+.basic-detail-box ul li, .personal-detail-box ul li, .family-detail-box ul li{
+ font-size: 1.5rem;
+}
+
+.summary h2{
+  color: var(--navColor);
+}
+/* summary end */
+
 @keyframes coming {
   0% {
     color: rgb(150, 170, 141);
@@ -796,7 +811,7 @@ body {
   .oneD{
     height: 65vh;
   }
-  .filterOne {
+  .filterOne { 
     gap: 8px;
     padding: 15px 15px;
     margin: auto;

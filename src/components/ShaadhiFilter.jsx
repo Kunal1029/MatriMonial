@@ -1,84 +1,87 @@
-import "../assets/script/script";
-import MyButton from "./MyButton";
-// import Register from "./Register";
-
+/* eslint-disable react/no-unescaped-entities */
+import { useState } from "react";
 
 export default function ShaadhiFilter() {
+  
+  const [formData, setFormData] = useState({
+    gender: "",
+    minAge: "",
+    maxAge: "",
+    gotra: "",
+  });
+
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // You can access all form data here and perform further actions
+    console.log(formData);
+  };
+
   return (
-    <form className="filterOne">
-      
+    <form className="filterOne" onSubmit={handleSubmit}>
       <div className="fom1">
-
         {/* Gender */}
-
         <div className="d-flex flex-column">
-          <label className="form-label text-white">
-            I&rsquo;m looking for a
-          </label>
-          <select className="form-select">
-            <option>Woman</option>
-            <option>man</option>
+          <label className="form-label text-white">I'm looking for a</label>
+          <select
+            className="form-select"
+            name="gender"
+            value={formData.gender} // Add value attribute here
+            onChange={handleChange}
+          >
+            <option value="Woman">Woman</option>
+            <option value="Man">Man</option>
           </select>
         </div>
-
-        {/* age */}
-
+        {/* Age */}
         <div className="d-flex flex-column">
-          <label className="form-label text-white">aged</label>
+          <label className="form-label text-white">Aged</label>
           <div className="d-flex">
-            <select className="form-select">
-              {Array.from({ length: 53 }, (_, index) => (
-                <option key={index + 21}>{index + 21}</option>
-              ))}
-            </select>
+            <input
+              type="number"
+              name="minAge"
+              max={45}
+              min={21}
+              value={formData.minAge}
+              onChange={handleChange}
+            />
             <span className="text-white ms-2 me-2">to</span>
-            <select className="form-select">
-              {Array.from({ length: 53 }, (_, index) => (
-                <option key={index + 21}>{index + 21}</option>
-              ))}
-            </select>
+            <input
+              type="number"
+              name="maxAge"
+              max={45}
+              min={21}
+              value={formData.maxAge}
+              onChange={handleChange}
+            />
           </div>
         </div>
-
       </div>
-
       <div className="fom1">
-
-        {/* religion */}
+        {/* Religion */}
         <div className="d-flex flex-column">
-          <label className="form-label text-white">of religion</label>
-          <select className="form-select">
-            <option>Select</option>
-            <option>Hindu</option>
-            <option>Muslim</option>
-            <option>Christian</option>
-            <option>Sikh</option>
-            <option>Parsi</option>
-            <option>Jain</option>
-          </select>
+          <label className="form-label text-white">Gotra</label>
+          <input
+            type="text"
+            name="gotra"
+            placeholder="e.g. chandil"
+            value={formData.gotra}
+            onChange={handleChange}
+          />
         </div>
-
-        {/* language */}
-        <div className="d-flex flex-column">
-          <label className="form-label text-white">and mother tongue</label>
-          <select className="form-select">
-            <option>Select</option>
-            <option>Hindi</option>
-            <option>Englis</option>
-          </select>
-        </div>
-
-      </div>
-      
-      {/* <button type="submit" className="btn btn-primary px-5" >
-        Let&rsquo;s Begin
-      </button> */}
-      
-      <div >
-        <MyButton text="Let's Begin" />
       </div>
 
-  
+      <div>
+        <button type="submit">Lets Begin</button>
+      </div>
     </form>
   );
 }

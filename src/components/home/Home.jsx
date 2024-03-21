@@ -1,16 +1,21 @@
 // import Try from "../Entry/Try";
-import Register from "../Register";
 import Recommendation from "../Recommendation";
 import ShaadhiFilter from "../ShaadhiFilter";
 import { Header } from "../Header";
-
+import { Link } from "react-router-dom";
+import { useState } from "react";
 
 function Home() {
+  const [isCtn, setIsCtn] = useState(true);
+
+  const handleClick = () => {
+    setIsCtn((prevState) => !prevState);
+  };
+
   return (
     <>
-      
       <Header />
-       
+
       <div className="container-fluid oneD text-center">
         {/* <!--  searchbar --> */}
 
@@ -107,16 +112,21 @@ function Home() {
         <Recommendation />
 
         <div className="recombtn">
-          <Register text="See More"/>
+          <Link
+            to="/register"
+            onClick={handleClick}
+            id="myctn"
+            className={`${isCtn ? "myctn" : "mybtn"}`}
+          >
+            See More
+          </Link>
         </div>
       </div>
-
-      
 
       <div className="hr mycontainer mt-5 text-danger">
         <hr />
       </div>
-       
+
       {/* Recommandation end */}
 
       <div className="second mt-5">
@@ -237,7 +247,14 @@ function Home() {
       </div>
 
       <div className="text-center mb-5">
-        <Register text="Explore Our Plans" />
+      <Link
+            to="/register"
+            onClick={handleClick}
+            id="myctn"
+            className={`${isCtn ? "myctn" : "mybtn"}`}
+          >
+            Explore Our Plans
+          </Link>
       </div>
 
       {/* <div className="comingsoon mycontainer text-center mt-5 mb-5">

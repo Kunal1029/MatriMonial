@@ -1,0 +1,27 @@
+/* 
+
+  .container{
+    margin-top: 50px;
+    background-color: #fff;
+    width: 500px;
+    height: 700px;
+}
+
+.img-box{ 
+    position: relative;
+    right: 4em
+}
+
+h5{
+    font-size: 15px;
+    color: black;
+    text-transform: uppercase;
+}
+
+.basic-detail-box ul li, .personal-detail-box ul li, .family-detail-box ul li{
+    font-size: 13px;
+    color: black;
+    list-style-type: none;
+    text-align: justify;
+}
+   */

@@ -1,4 +1,6 @@
 import { useEffect, useState, useRef } from "react";
+import { Link } from "react-router-dom";
+// import OurPlans from "./OurPlans";
 
 function Header() {
   const headerRef = useRef(null);
@@ -44,9 +46,9 @@ function Header() {
         <nav className="navbar navbar-expand-lg container">
           <div className="container-fluid">
             <div className="logoimg">
-              <a className="navbar-brand me-auto " href="#">
+              <Link className="navbar-brand me-auto " to="/">
                 <img src="image/logo3.png" className="" alt="" />
-              </a>
+              </Link>
             </div>
 
             <div>
@@ -67,153 +69,54 @@ function Header() {
               >
                 <ul className="navbar-nav mb-2 mb-lg-0 lato-regular">
                   <li className="nav-item lato-bold menu">
-                    <a className="nav-link active text-light" href="#">
+                    <Link className="nav-link active text-light" to="/">
                       Home
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item lato-bold menu">
-                    <a className="nav-link active text-light" href="#">
+                    <Link className="nav-link active text-light" to="/about">
                       About
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item lato-bold menu">
-                    <a className="nav-link active text-light" href="#">
+                    <Link className="nav-link active text-light" to="/contact">
                       Contact
-                    </a>
+                    </Link>
                   </li>
 
                   <li className="nav-item lato-bold menu">
-                    <a className="nav-link active text-light" href="#">
+                    <Link className="nav-link active text-light"  to="/ourplan">
                       Our Plans
-                    </a>
+                    </Link>
                   </li>
-
-                  <li className="nav-item dropdown">
-                    <a
-                      className="nav-link dropdown-toggle text-white"
-                      href="#"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
-                    >
-                      Help
-                    </a>
-                    <ul className="dropdown-menu">
-                      <li>
-                        <a className="dropdown-item" href="#">
-                          Action
-                        </a>
-                      </li>
-                      <li>
-                        <a className="dropdown-item" href="#">
-                          Another action
-                        </a>
-                      </li>
-                      <li>
-                        <hr className="dropdown-divider" />
-                      </li>
-                      <li>
-                        <a className="dropdown-item" href="#">
-                          Something else here
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
-
-                  {/* <li className="nav-item ms-2"> */}
-
-                  {/* <button type="button" className="btn btn-danger text-light">
-                      Login
-                    </button> */}
-
-                  {/* 
-                    <button  type="button" className="btn ms-2 me-2 btn-danger text-light">
-                     SignUp
-                    </button> */}
-
-                  {/* </li> */}
                 </ul>
 
                 {/* <!-- Button trigger modal --> */}
-                <button
+                <Link
                   type="button"
                   className="btn btn btn-danger text-light"
-                  data-bs-toggle="modal"
-                  data-bs-target="#staticBackdrop"
+                  to="/login"
                 >
                   Login
-                </button>
+                </Link>
 
-                {/* <button
+                <Link
                   type="button"
-                  onClick={lala}
-                  className="btn btn btn-danger text-light"
+                  to="/register"
+                  className="btn btn btn-danger text-light ms-2"
                 >
-                  Sign Up
-                </button> */}
+                  SignUp
+                </Link>
               </div>
             </div>
           </div>
         </nav>
       </header>
-
-      {/* <!-- Modal --> */}
-
-      <div
-        className="modal fade"
-        id="staticBackdrop"
-        data-bs-backdrop="static"
-        data-bs-keyboard="false"
-        aria-labelledby="staticBackdropLabel"
-        aria-hidden="true"
-      >
-        <div className="modal-dialog modal-dialog-centered">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h1 className="modal-title fs-5" id="staticBackdropLabel">
-                Login
-              </h1>
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div className="modal-body">
-              <div className="mb-3 col-lg-12">
-                <label className="form-label">Email</label>
-                <input
-                  type="email"
-                  placeholder="Email"
-                  className="form-control  shadow-none "
-                />
-              </div>
-
-              <div className="mb-3 col-lg-12">
-                <label className="form-label">Password</label>
-                <input
-                  type="password"
-                  placeholder="Enter Password"
-                  className="form-control  shadow-none "
-                />
-              </div>
-            </div>
-            <div className="modal-footer">
-              <button
-                type="button"
-                className="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Close
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
     </>
   );
 }
+
+// <!-- Button trigger modal -->
 
 function Header2() {
   const headerRef = useRef(null);
@@ -259,9 +162,9 @@ function Header2() {
         <nav className="navbar navbar-expand-lg container">
           <div className="container-fluid">
             <div className="logoimg">
-              <a className="navbar-brand me-auto " href="#">
+              <Link className="navbar-brand me-auto " to="/home2">
                 <img src="image/logo3.png" className="" alt="" />
-              </a>
+              </Link>
             </div>
 
             <div>
@@ -282,71 +185,57 @@ function Header2() {
               >
                 <ul className="navbar-nav mb-2 mb-lg-0 lato-regular">
                   <li className="nav-item lato-bold menu">
-                    <a className="nav-link active text-light" href="#">
+                    <Link className="nav-link active text-light" to="/home2">
                       Home
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item lato-bold menu">
-                    <a className="nav-link active text-light" href="#">
-                      About
-                    </a>
-                  </li>
-                  <li className="nav-item lato-bold menu">
-                    <a className="nav-link active text-light" href="#">
-                      Contact
-                    </a>
-                  </li>
-
-                  <li className="nav-item lato-bold menu">
-                    <a className="nav-link active text-light" href="#">
-                      Our Plans
-                    </a>
-                  </li>
-
-                  <li className="nav-item dropdown">
-                    <a
-                      className="nav-link dropdown-toggle text-white"
-                      href="#"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
+                    <Link
+                      className="nav-link active text-light"
+                      to="/home2/about"
                     >
-                      Help
-                    </a>
-                    <ul className="dropdown-menu">
-                      <li>
-                        <a className="dropdown-item" href="#">
-                          Action
-                        </a>
-                      </li>
-                      <li>
-                        <a className="dropdown-item" href="#">
-                          Another action
-                        </a>
-                      </li>
-                      <li>
-                        <hr className="dropdown-divider" />
-                      </li>
-                      <li>
-                        <a className="dropdown-item" href="#">
-                          Something else here
-                        </a>
-                      </li>
-                    </ul>
+                      About
+                    </Link>
+                  </li>
+                  <li className="nav-item lato-bold menu">
+                    <Link className="nav-link active text-light" to="/contact">
+                      Contact
+                    </Link>
+                  </li>
+
+                  <li className="nav-item lato-bold menu">
+                    <Link className="nav-link active text-light" to="/contact">
+                      WishList
+                    </Link>
+                  </li>
+                  <li className="nav-item lato-bold menu">
+                    <Link className="nav-link active text-light" to="/recommendationall">
+                      All Matches
+                    </Link>
+                  </li>
+
+                  <li className="nav-item lato-bold menu">
+                    <Link className="nav-link active text-light" to="/ourplan">
+                      Our Plans
+                    </Link>
                   </li>
                 </ul>
 
                 {/* <!-- Button trigger modal --> */}
                 <button
                   type="button"
-                  className="border-0 home2btn p-2 px-4 rounded-pill text-light"
+                  className="border-0 home2btn p-2 px-3 rounded-pill text-light"
+                >
+                  Log Out
+                </button>
+
+                <button
+                  type="button"
+                  // to="/mainregister"
+                  className="border-0 p-2 home2btn btn rounded-pill ms-2"
                   data-bs-toggle="modal"
                   data-bs-target="#staticBackdrop"
                 >
-                  Sign Out
-                </button>
-
-                <button className="border-0 p-2 home2btn rounded-pill ms-2">
                   Add Profile
                   <i className="fa-solid fa-plus ms-2 rounded-pill border border-white p-1"></i>
                 </button>
@@ -356,9 +245,56 @@ function Header2() {
         </nav>
       </header>
 
-      {/* <!-- Modal --> */}
+      <div
+        className="modal fade"
+        id="staticBackdrop"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog modal-dialog-centered">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h1 className="modal-title fs-5" id="staticBackdropLabel">
+                All Profiles
+              </h1>
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div className="modal-body">
+              <div className="modal-body text-center">
+                <Link
+                  type="button"
+                  to="/mainregister"
+                  className="border-0 p-2 home2btn btn rounded-pill ms-2"
+                  onClick={() => {
+                    document.getElementById("staticBackdrop").modal("hide");
+                  }}
+                >
+                  Add Profile
+                  <i className="fa-solid fa-plus ms-2 rounded-pill border border-white p-1"></i>
+                </Link>
+              </div>
+            </div>
+            <div className="modal-footer">
+              <button
+                type="button"
+                className="btn btn-danger"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
 
-export  { Header, Header2 };
+export { Header, Header2 };
