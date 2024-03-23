@@ -1,6 +1,7 @@
 import { useState } from "react";
-import BlankHeader from "./BlankHeader";
+// import BlankHeader from "./BlankHeader";
 import { Link } from "react-router-dom";
+import { Header } from "./Header";
 
 export function Login() {
   const [formData, setFormData] = useState({
@@ -42,7 +43,7 @@ export function Login() {
 
   return (
     <div className="mycontainer firstmodalform">
-      <BlankHeader />
+      <Header showAnimation={false} mybgclass="#b03060" />
       <div className="formImg col-md-6 mt-5 mb-5">
         <img src="image/finalLogo.png" alt="" />
       </div>

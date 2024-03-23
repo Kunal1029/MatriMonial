@@ -1,18 +1,46 @@
 :root {
   /* --primaryColor: #FFF8E1; */
   --primaryColor: white;
-  --navColor: #B03060;
-  --navtext: #F0F0F0;
-  --textbg: #001F3F;
+  --navColor: #b03060;
+  --navtext: #f0f0f0;
+  --textbg: #001f3f;
 }
 html {
   box-sizing: border-box;
 }
+html::-webkit-scrollbar{
+  width: 10px;
+}
+html::-webkit-scrollbar-thumb{
+  background-color: var(--navColor);
+  border-radius: 40px;
+}
+html::-webkit-scrollbar-track{
+  background-color: var(--navtext);
+  border: 1px solid var(--navColor);
+  
+}
+
 body {
   margin: 0;
   background-color: var(--primaryColor);
   padding: 0px;
 }
+/* admin */
+
+.admin header {
+  background-color: var(--navColor);
+  color: var(--navtext);
+}
+.admin .showAlldata {
+  margin-top: 50px;
+}
+
+/* .showAlldata th{
+  display: flex;
+  
+} */
+/* admin end */
 .lato-thin {
   font-family: "Lato", sans-serif;
   font-weight: 100;
@@ -181,7 +209,6 @@ body {
   gap: 5px;
 }
 
-
 .flip-card {
   background-color: transparent;
   /* width: 100%; */
@@ -269,7 +296,6 @@ body {
 }
 /* our plan end */
 
-
 /* coming soon */
 .comingsoon {
   display: flex;
@@ -288,33 +314,34 @@ body {
 }
 /* coming soon end */
 
-
 /* about page */
 
 .aboutus {
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("image/aboutbg.jpg");
   background-position: center;
+  background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
-  height: 65vh;
+  height: 85vh;
   position: relative;
   z-index: -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .aboutus h1 {
-  position: absolute;
-  top: 42%;
-  left: 42%;
-  font-size: 3rem;
+  width: 13rem;
+  font-size: 2.5rem;
   margin: auto;
   border-radius: 10px;
   padding: 4px;
-  color: #ffc850;
-  border: #561f41cd 1px solid;
+  color: var(--navColor);
+  background-color: rgba(255, 255, 255, 0.47);
+  /* border: #561f41cd 1px solid; */
   letter-spacing: 1px;
   word-spacing: 7px;
-  background-color: rgba(206, 194, 194, 0.064);
 }
 .aboutimg {
   margin-top: -89px;
@@ -331,15 +358,22 @@ body {
   justify-content: center;
 }
 .aboutText h2 {
-  margin-top: 40px;
+  margin-top: 60px;
+  font-size: 1.8rem;
+  color: var(--navColor);
+  text-shadow: 2px 2px 4px #b0305f7c;
 }
+
+
 .aboutText p {
   margin-top: 15px;
   width: 55%;
   text-align: justify;
   letter-spacing: 1px;
   word-spacing: 5px;
-}
+  }
+
+
 .aboutCard {
   display: flex;
   flex-direction: column;
@@ -500,17 +534,17 @@ body {
 
 /* 1st REGISTRATION CSS */
 
-.md1{
+.md1 {
   position: relative;
 }
-.modal-content{
+.modal-content {
   width: 98vw;
   /* position: absolute;
   top: 0px;
   left: 0px; */
 }
 
-.firstmodalform{
+.firstmodalform {
   display: flex;
   margin-top: 100px;
   align-items: center;
@@ -518,26 +552,24 @@ body {
   /* gap: 30px; */
 }
 
-
-.firstmodalform .formImg{
+.firstmodalform .formImg {
   padding: auto;
 }
 
-.firstmodalform .formImg img{
+.firstmodalform .formImg img {
   width: 80vh;
   height: 100%;
 }
 
-.firstRegister{
-  
+.firstRegister {
   padding: 10px;
 }
 
-.firstRegister .form-label{
+.firstRegister .form-label {
   color: var(--navColor);
 }
 
-.firstRegister input{
+.firstRegister input {
   /* border-radius: 25px; */
   text-align: center;
   border-top: 0px;
@@ -547,27 +579,24 @@ body {
   background-color: var(--primaryColor);
 }
 
-.firstRegister input::placeholder{
+.firstRegister input::placeholder {
   color: var(--textbg);
 }
 
-
-.firstRegister input:focus{
+.firstRegister input:focus {
   border: var(--navColor) 1px solid;
   border-radius: 25px;
   background-color: var(--primaryColor);
   transition: 1s;
 }
 
-
 /* 1st REGISTRATION CSS END */
 
 /* ---------------------------------------------- */
 
-
 /* Recomadation */
 
-.recom h3{
+.recom h3 {
   text-align: center;
   letter-spacing: 1px;
   word-spacing: 2px;
@@ -576,14 +605,14 @@ body {
   margin-top: 90px;
 }
 
-.recomCard{
+.recomCard {
   display: flex;
   align-items: center;
   gap: 15px;
   justify-content: space-around;
   margin-top: 80px;
 }
-.recomCard .card{
+.recomCard .card {
   /* width: 100px; */
   background: transparent;
   padding: 10px;
@@ -594,53 +623,51 @@ body {
   cursor: pointer;
 }
 
-.recomCard .card img{
+.recomCard .card img {
   height: 21vw;
-  width: 21vw; 
+  width: 21vw;
   border-radius: 50%;
 }
 .recomCard .card img:hover {
   transition: 0.8s;
   transform: scale(1.2);
   z-index: 1000;
-  box-shadow: 0px 0px 6px 1px var(--navColor) /* Shadow properties */
+  box-shadow: 0px 0px 6px 1px var(--navColor); /* Shadow properties */
 }
 
-.recomCard .card-btn{
+.recomCard .card-btn {
   font-size: 10px;
 }
-.recombtn{
+.recombtn {
   margin-top: 50px;
   margin-bottom: 80px;
   text-align: right;
   margin-right: 60px;
 }
-.mdbtn{
+.mdbtn {
   background-color: var(--navColor);
 }
 
-
-
 /* form modal 1 */
 
-.form-m-1 label{
+.form-m-1 label {
   border-radius: 30px;
   border: 1px solid var(--navColor);
 }
 
-.btn-form-m-1{
+.btn-form-m-1 {
   background-color: var(--navColor);
   color: var(--primaryColor);
   border: none;
   border-radius: 20px;
 }
-.btn-form-m-2 button{
+.btn-form-m-2 button {
   background-color: var(--navColor);
   color: var(--primaryColor);
   border: none;
   border-radius: 10px;
 }
-.btn-form-m-2{
+.btn-form-m-2 {
   display: flex;
   justify-content: flex-start;
 }
@@ -649,24 +676,22 @@ body {
 
 /* Recomadation end */
 
-
 /* Home 2 */
-.home-2-search{
+.home-2-search {
   position: absolute;
   top: 15%;
   left: 40%;
 }
-.home2btn{
+.home2btn {
   background-color: var(--navColor);
   color: var(--primaryColor);
 }
 
 /* Home 2 end */
 
-
 /* Main Register */
 
-.MainRegister{
+.MainRegister {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -684,13 +709,13 @@ body {
   justify-content: center;
   margin-top: 140px;
 }
-.progress-bar span{
+.progress-bar span {
   /* background-color: rgba(0, 0, 0, 0.098); */
   width: 20px;
   height: 2px;
   transition: 0.8s;
 }
-.progress-bar span.active{
+.progress-bar span.active {
   background-color: var(--navColor);
 }
 .step {
@@ -707,7 +732,7 @@ body {
 .step.active {
   background-color: var(--navColor);
 }
-.multistepform button{
+.multistepform button {
   border: none;
   background-color: var(--navColor);
   border-radius: 15px;
@@ -716,16 +741,15 @@ body {
   margin-top: 10px;
   margin-left: 20px;
 }
-.multistepform h2{
+.multistepform h2 {
   font-size: 2rem;
 }
-
 
 /* Main Register end */
 
 /* adding bio */
 
-.addbio img{
+.addbio img {
   width: 400px;
   height: 400px;
   border-radius: 50%;
@@ -733,12 +757,11 @@ body {
 
 /* adding bio end */
 
-
 /* My profile */
-.myprofile{
+.myprofile {
   margin-top: 200px;
 }
-.myprofile button{
+.myprofile button {
   border: none;
   padding: 12px 30px;
   background-color: var(--navColor);
@@ -748,16 +771,19 @@ body {
 }
 /* My profile end */
 
-
 /* summary  */
-.basic-detail-box h3, .personal-detail-box h3, .family-detail-box h3{
- color: var(--navColor);
+.basic-detail-box h3,
+.personal-detail-box h3,
+.family-detail-box h3 {
+  color: var(--navColor);
 }
-.basic-detail-box ul li, .personal-detail-box ul li, .family-detail-box ul li{
- font-size: 1.5rem;
+.basic-detail-box ul li,
+.personal-detail-box ul li,
+.family-detail-box ul li {
+  font-size: 1.5rem;
 }
 
-.summary h2{
+.summary h2 {
   color: var(--navColor);
 }
 /* summary end */
@@ -788,7 +814,7 @@ body {
   .logoimg a img {
     width: 100%;
   }
-  .oneD{
+  .oneD {
     height: 75vh;
   }
   .fullcard {
@@ -808,10 +834,10 @@ body {
 }
 
 @media (max-width: 840px) {
-  .oneD{
+  .oneD {
     height: 65vh;
   }
-  .filterOne { 
+  .filterOne {
     gap: 8px;
     padding: 15px 15px;
     margin: auto;
@@ -852,7 +878,7 @@ body {
     flex-direction: row;
     gap: 25px;
   }
-  .hone p{
+  .hone p {
     display: none;
   }
 
@@ -868,7 +894,10 @@ body {
     font-size: 1.4rem;
     margin: auto;
   }
-
+  .aboutCard ul {
+    display: flex;
+    flex-direction: column;
+  }
 }
 @media (max-width: 767px) {
   .footer-dark .item:not(.social) {
@@ -884,10 +913,10 @@ body {
     left: 0;
     bottom: 50px;
   }
-  .mycontainer{
+  .mycontainer {
     width: 90vw;
   }
-  .recomCard{
+  .recomCard {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -895,24 +924,24 @@ body {
     justify-content: space-around;
     margin-top: 80px;
   }
-  .recomCard .card img{
+  .recomCard .card img {
     height: 50vw;
-    width: 50vw; 
+    width: 50vw;
     border-radius: 50%;
   }
   .recomCard .card img:hover {
     transition: 0.8s;
     transform: scale(1.3);
     z-index: 1000;
-    box-shadow: 0px 0px 6px 1px var(--navColor) /* Shadow properties */
+    box-shadow: 0px 0px 6px 1px var(--navColor); /* Shadow properties */
   }
-  .recom h3{
+  .recom h3 {
     font-size: 1.7rem;
   }
 }
 
-@media (max-width:500px) {
-  .hone p{
+@media (max-width: 500px) {
+  .hone p {
     display: none;
   }
   .logoimg {
@@ -920,6 +949,14 @@ body {
   }
   .logoimg a img {
     width: 100%;
+  }
+  .aboutCard ul {
+    display: flex;
+    flex-direction: column;
+  }
+  .aboutText h2 {
+    margin-top: 40px;
+    font-size: 1.3rem;
   }
 }
 
@@ -946,27 +983,16 @@ body {
   .logoimg a img {
     width: 100%;
   }
+  .ufr {
+    font-size: 0.8rem;
+  }
+  .aboutText h2 {
+    margin-top: 40px;
+    font-size: 1.1rem;
+  }
 }
 
-/* animation  */
-/* .exploreBtn{
-  
-  text-decoration: none;
-  color: var(--primaryColor);
-} */
-
-/* .exploreBtn1{
-  text-decoration: none;
-  padding: 20px;
-  z-index: 99;
-  border: 1px solid var(--navColor);
-  border-radius: 10px;
-  font-size: 20px;
-  color: var(--navColor);
-  position: relative;
-} */
-
-.myctn{
+.myctn {
   padding: 5px 10px;
   position: relative;
   /* top: 50%;
@@ -979,7 +1005,7 @@ body {
   text-decoration: none;
 }
 
-.mybtn{
+.mybtn {
   padding: 7px 12px;
   position: relative;
   /* top: 50%;
@@ -991,7 +1017,7 @@ body {
 }
 
 .mybtn:after {
-  content: ''; /* Create a pseudo-element for the animation */
+  content: ""; /* Create a pseudo-element for the animation */
   position: absolute; /* Position it absolutely within the button */
   top: 0;
   left: 0;
@@ -1000,16 +1026,14 @@ body {
   z-index: -1;
   border-radius: 10px;
   background-color: var(--navColor); /* Target background color */
-  animation: coverBackground 0.3s linear  forwards; /* Animation properties */
+  animation: coverBackground 0.3s linear forwards; /* Animation properties */
 }
 
 @keyframes coverBackground {
-  from{
+  from {
     width: 0%;
   }
   to {
     width: 100%; /* Cover the entire width of the button */
   }
 }
-
-

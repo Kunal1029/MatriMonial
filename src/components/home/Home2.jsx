@@ -6,6 +6,7 @@ import RecommendationDynamic from "../RecommendationDynamic";
 import RecommandationAll from "../RecommandationAll";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import SearchPartner from "../Filter/SearchPartner";
 
 function Home2() {
   const [isCtn, setIsCtn] = useState(true);
@@ -40,7 +41,7 @@ function Home2() {
         </div>
 
         <div className="filter w-100 mt-2">
-          <ShaadhiFilter />
+          <SearchPartner />
         </div>
 
       </div>

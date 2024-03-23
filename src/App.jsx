@@ -18,7 +18,10 @@ import RecommendationDynamic from "./components/RecommendationDynamic.jsx";
 import RecommandationAll from "./components/RecommandationAll.jsx";
 import IndividualProfile from "./components/Indivisual Profile/IndividualProfile.jsx";
 import OurPlans from "./components/OurPlans.jsx";
-
+import Admin from "./components/Admin/Admin.jsx";
+import { AdminLogin } from "./components/Admin/AdminLogin.jsx";
+import SearchPartner from "./components/Filter/SearchPartner.jsx";
+import PerfectMatch from "./components/Filter/PerfectMatch.jsx";
 
 function App() {
   return (
@@ -48,6 +51,10 @@ function App() {
         <Route path="/recommendationall" element={<RecommandationAll />}/>
         <Route path="/singleprofile" element={<IndividualProfile />}/>
         <Route path="/ourplan" element={<OurPlans />}/>
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/adminlogin" element={<AdminLogin />} />
+        <Route path="/searchpartner" element={<SearchPartner />} />
+        <Route path="/perfectmatch" element={<PerfectMatch />} />
       </Routes>
       <Footer />
 

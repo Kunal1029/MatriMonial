@@ -4,8 +4,11 @@ function Contact() {
   return (
     <>
       <div className="container-fluid maincontact text-center">
-        <Header />
+        
+        <Header showAnimation={true} />
+
         {/* <!-- <div><img src="image/contact1.jpg" alt=""></div> --> */}
+
         <div className="container contact">
           <div className="col-lg-6 col-md-5 col-12 text-white">
             <h1>Get in Touch</h1>

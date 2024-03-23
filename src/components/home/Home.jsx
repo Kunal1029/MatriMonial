@@ -14,7 +14,7 @@ function Home() {
 
   return (
     <>
-      <Header />
+      <Header showAnimation={true} />
 
       <div className="container-fluid oneD text-center">
         {/* <!--  searchbar --> */}

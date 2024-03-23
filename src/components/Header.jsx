@@ -1,48 +1,54 @@
+/* eslint-disable react/prop-types */
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 // import OurPlans from "./OurPlans";
 
-function Header() {
+function Header({showAnimation , mybgclass}) {
   const headerRef = useRef(null);
   const [prevScrollY, setPrevScrollY] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      const header = headerRef.current;
-
-      if (currentScrollY > 0) {
-        if (prevScrollY < currentScrollY && currentScrollY > 630) {
+    if(showAnimation){
+      const handleScroll = () => {
+        const currentScrollY = window.scrollY;
+        const header = headerRef.current;
+  
+        if (currentScrollY > 0) {
+          if (prevScrollY < currentScrollY && currentScrollY > 630) {
+            header.classList.remove("myheadercolor");
+            header.classList.add("myheader");
+            header.classList.add("mt-4");
+            header.hidden = true;
+          } else {
+            header.classList.add("myheadercolor");
+            header.classList.add("myheader");
+            header.classList.remove("mt-4");
+            header.hidden = false;
+          }
+  
+          setPrevScrollY(currentScrollY);
+        } else {
           header.classList.remove("myheadercolor");
           header.classList.add("myheader");
           header.classList.add("mt-4");
-          header.hidden = true;
-        } else {
-          header.classList.add("myheadercolor");
-          header.classList.add("myheader");
-          header.classList.remove("mt-4");
           header.hidden = false;
         }
-
-        setPrevScrollY(currentScrollY);
-      } else {
-        header.classList.remove("myheadercolor");
-        header.classList.add("myheader");
-        header.classList.add("mt-4");
-        header.hidden = false;
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [prevScrollY]);
+      };
+  
+      window.addEventListener("scroll", handleScroll);
+  
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }
+    
+   
+  }, [prevScrollY , showAnimation]);
 
   return (
     <>
-      <header ref={headerRef} className="container-fluid fixed-top">
+      {showAnimation}
+      <header ref={headerRef} className="container-fluid fixed-top" style={{backgroundColor:`${mybgclass}`}} >
         <nav className="navbar navbar-expand-lg container">
           <div className="container-fluid">
             <div className="logoimg">
