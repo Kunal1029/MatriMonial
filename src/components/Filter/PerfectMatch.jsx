@@ -59,7 +59,7 @@ function PerfectMatch() {
               <p className="card-text">
                 <b>Name</b> : {card.name}
                 <br />
-                <b>Age</b> : {card.age}
+                <b>Age</b> : {card.age} 
               </p>
 
               <button onClick={() => toggleWish(card.id)}>

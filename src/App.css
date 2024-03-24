@@ -7,6 +7,10 @@
 }
 html {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+  /* overflow: hidden; */
 }
 html::-webkit-scrollbar{
   width: 10px;
@@ -21,6 +25,7 @@ html::-webkit-scrollbar-track{
   
 }
 
+
 body {
   margin: 0;
   background-color: var(--primaryColor);
@@ -34,6 +39,41 @@ body {
 }
 .admin .showAlldata {
   margin-top: 50px;
+}
+
+.menu-bars {
+  position: fixed;
+  top: 1rem;
+  right: 2rem;
+  z-index: 10;
+  display: inline;
+  cursor: pointer;
+  border: none;
+}
+
+.bar1,
+.bar2,
+.bar3 {
+  width: 35px;
+  height: 2px;
+  background-color: #fff;
+  margin: 8px 0;
+  transition: 0.4s;
+}
+
+/* Rotate first bar */
+.mynavtogchange .bar1 {
+  transform: rotate(-45deg) translate(-7px, 8px);
+}
+
+/* Fade out the second bar */
+.mynavtogchange .bar2 {
+  opacity: 0;
+}
+
+/* Rotate last bar */
+.mynavtogchange .bar3 {
+  transform: rotate(45deg) translate(-6px, -8px);
 }
 
 /* .showAlldata th{
@@ -78,6 +118,7 @@ body {
   background-image: linear-gradient(rgba(0, 0, 0, 0.369), rgba(0, 0, 0, 0.5)),
     url("image/oneBG.jpg");
   background-position: center;
+  background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
@@ -171,8 +212,44 @@ body {
   /* background-color: #89311d; */
   background: #ffc8503b;
 }
-.filterOne button {
+.filterOne .btnS {
   margin-top: 2.1rem;
+  background-color: var(--navColor);
+  color: white;
+  text-decoration: none;
+  padding: 8px 20px;
+  border-radius: 20px;
+}
+.filterOne .form-label {
+  font-size: 1.1rem;
+}
+
+.filterOne input {
+  /* border-radius: 25px; */
+  /* text-align: center; */
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+  border-bottom: 1px solid var(--navColor);
+  background-color: var(--primaryColor);
+  border-radius: 8px;
+  padding: 6px 15px;
+}
+.filterOne select{
+  background-color: var(--primaryColor);
+  border-radius: 8px;
+  padding: 5px 15px;
+  width: 100px;
+}
+.filterOne input::placeholder {
+  color: var(--textbg);
+}
+
+.filterOne input:focus {
+  border: var(--navColor) 1px solid;
+  border-radius: 25px;
+  background-color: var(--primaryColor);
+  transition: 1s;
 }
 
 /* flter end */
@@ -424,23 +501,29 @@ body {
 /* contact */
 .maincontact .contact {
   position: absolute;
-  top: 20%;
+  top: 25%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   margin: auto;
 }
 .maincontact {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.512), rgba(0, 0, 0, 0.378)),
+  background-image: linear-gradient(rgba(0, 0, 0, 0.598), rgba(0, 0, 0, 0.512)),
     url("image/contact1.jpg");
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
   background-size: cover;
   /* width: 50%; */
-  height: 95vh;
+  height: 90vh;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
+.contact .address h1{
+  text-shadow: 3px 3px 6px #b0305f7c;
+}
 .contact form {
   background-color: rgba(165, 42, 42, 0.761);
   background-color: #dca7817d;
@@ -544,9 +627,9 @@ body {
   left: 0px; */
 }
 
-.firstmodalform {
+.firstmodalform .imgform{
   display: flex;
-  margin-top: 100px;
+  margin-top: 120px;
   align-items: center;
   justify-content: space-between;
   /* gap: 30px; */
@@ -555,11 +638,16 @@ body {
 .firstmodalform .formImg {
   padding: auto;
 }
+.registerImg{
+  margin-right: 30px;
+}
+
 
 .firstmodalform .formImg img {
   width: 80vh;
   height: 100%;
 }
+
 
 .firstRegister {
   padding: 10px;
@@ -571,7 +659,7 @@ body {
 
 .firstRegister input {
   /* border-radius: 25px; */
-  text-align: center;
+  /* text-align: center; */
   border-top: 0px;
   border-left: 0px;
   border-right: 0px;
@@ -590,11 +678,20 @@ body {
   transition: 1s;
 }
 
+
 /* 1st REGISTRATION CSS END */
 
 /* ---------------------------------------------- */
 
 /* Recomadation */
+.slick-prev:before {
+  color: var(--navColor) !important; 
+}
+
+.slick-next:before {
+  
+  color: var(--navColor) !important;
+}
 
 .recom h3 {
   text-align: center;
@@ -622,6 +719,9 @@ body {
   /* border: var(--navColor) 1px solid; */
   cursor: pointer;
 }
+.recomCard .ShowfullCard{
+  background-color: var(--navColor);
+}
 
 .recomCard .card img {
   height: 21vw;
@@ -633,6 +733,9 @@ body {
   transform: scale(1.2);
   z-index: 1000;
   box-shadow: 0px 0px 6px 1px var(--navColor); /* Shadow properties */
+}
+.recomCard .card-body p{
+  color: white;
 }
 
 .recomCard .card-btn {
@@ -803,6 +906,13 @@ body {
   }
 }
 
+@media (max-width: 1180px) {
+  #ks{
+    width: 385px;
+    height: 60vh;
+   }
+}
+
 @media (max-width: 991px) {
   .footer-dark .item.social {
     text-align: center;
@@ -831,6 +941,45 @@ body {
     justify-content: space-around;
     gap: 0px;
   }
+  .headertog{
+    background-color: var(--navColor);
+    animation: fade 0.5s ease forwards;
+
+  }
+  .mynavcollapse{
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--navColor);
+  }
+  .mynavcollapsefull{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--navColor);
+    transition:  opacity 0.8s ease;
+    position: absolute;
+    top: 90%;
+    right: 0;
+    animation: fade 0.6s ease forwards;
+  }
+ 
+  @keyframes fade {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  
 }
 
 @media (max-width: 840px) {
@@ -860,6 +1009,17 @@ body {
     left: 0;
     bottom: 90px;
   }
+  .firstmodalform .imgform{
+    display: flex;
+    margin-top: 160px;
+    align-items: center;
+    justify-content: space-between;
+    /* gap: 30px; */
+  }
+  #ks{
+    width: 350px;
+    height: 60vh;
+   }
 }
 @media (max-width: 770px) {
   .filterOne {
@@ -898,6 +1058,33 @@ body {
     display: flex;
     flex-direction: column;
   }
+  .maincontact .contact {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+  }
+  .maincontact {
+   
+    height: 150vh;
+    
+  }
+  .contact form{
+    margin-bottom: 50px;
+  }
+  .formImg{
+    display: none;
+  }
+  .firstmodalform .imgform{
+    display: flex;
+    margin-top: 160px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    /* gap: 30px; */
+  }
+  
 }
 @media (max-width: 767px) {
   .footer-dark .item:not(.social) {
@@ -922,12 +1109,14 @@ body {
     align-items: center;
     gap: 15px;
     justify-content: space-around;
-    margin-top: 80px;
+    margin-top: 40px;
   }
+ 
   .recomCard .card img {
     height: 50vw;
     width: 50vw;
     border-radius: 50%;
+    margin-left: 20px;
   }
   .recomCard .card img:hover {
     transition: 0.8s;
@@ -938,6 +1127,7 @@ body {
   .recom h3 {
     font-size: 1.7rem;
   }
+
 }
 
 @media (max-width: 500px) {
@@ -990,6 +1180,14 @@ body {
     margin-top: 40px;
     font-size: 1.1rem;
   }
+ 
+.filterOne input {
+  padding: 4px 8px;
+}
+.filterOne select{
+  padding: 3px 10px;
+  width: 65px;
+}
 }
 
 .myctn {
@@ -1033,7 +1231,7 @@ body {
   from {
     width: 0%;
   }
-  to {
+  to { 
     width: 100%; /* Cover the entire width of the button */
   }
 }

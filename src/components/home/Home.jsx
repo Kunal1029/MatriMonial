@@ -13,38 +13,10 @@ function Home() {
   };
 
   return (
-    <>
+    <div className="finalcontainer">
       <Header showAnimation={true} />
 
       <div className="container-fluid oneD text-center">
-        {/* <!--  searchbar --> */}
-
-        {/* <div className="mycontainer w-25 searchfilter text-center">
-          <div id="mysearch" className="mb-4">
-            <i className="fa-solid lato-thin fa-magnifying-glass fa-2xl text-white"></i>
-          </div>
-
-          <form className="d-flex " id="mysearchform" role="search">
-            <input
-              id="searchInput"
-              className="form-control me-2"
-              type="search"
-              placeholder="Search"
-              hidden
-            />
-            <button
-              id="searchButton"
-              className="btn btn-outline-success"
-              type="submit"
-              hidden
-            >
-              Search
-            </button>
-          </form>
-        </div> */}
-
-        {/* <!-- commenting searchbar --> */}
-
         <div className="hone w-100">
           <p className="lato-bold">Best Platform for Vaishy samaja shaadi</p>
         </div>
@@ -53,58 +25,6 @@ function Home() {
           <ShaadhiFilter />
         </div>
       </div>
-
-      {/* <Try /> */}
-      {/* modal */}
-
-      <button
-        hidden
-        type="button"
-        className="btn btn-primary"
-        data-bs-toggle="modal"
-        data-bs-target="#mymodal"
-      >
-        Launch demo modal
-      </button>
-
-      <div
-        className="modal fade"
-        id="mymodal"
-        aria-labelledby="mymodalLabel"
-        aria-hidden="true"
-      >
-        <div className="modal-dialog modal-dialog-centered">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h1 className="modal-title fs-5" id="mymodalLabel">
-                Why are You here ?
-              </h1>
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div className="modal-body">
-              Again I&rsquo;m asking Why are you asking here ?
-            </div>
-            <div className="modal-footer">
-              <button
-                type="button"
-                className="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Close
-              </button>
-              <button type="button" className="btn btn-primary">
-                Save changes
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* modal end */}
 
       {/* Recommandation */}
 
@@ -247,20 +167,16 @@ function Home() {
       </div>
 
       <div className="text-center mb-5">
-      <Link
-            to="/register"
-            onClick={handleClick}
-            id="myctn"
-            className={`${isCtn ? "myctn" : "mybtn"}`}
-          >
-            Explore Our Plans
-          </Link>
+        <Link
+          to="/register"
+          onClick={handleClick}
+          id="myctn"
+          className={`${isCtn ? "myctn" : "mybtn"}`}
+        >
+          Explore Our Plans
+        </Link>
       </div>
-
-      {/* <div className="comingsoon mycontainer text-center mt-5 mb-5">
-        <h1>Coming Soon</h1>
-      </div> */}
-    </>
+    </div>
   );
 }
 

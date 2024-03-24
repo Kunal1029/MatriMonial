@@ -1,5 +1,4 @@
 import { useState } from "react";
-// import BlankHeader from "./BlankHeader";
 import { Link } from "react-router-dom";
 import { Header } from "./Header";
 
@@ -49,84 +48,88 @@ export function RegisterForm() {
 
   return (
     <div className="mycontainer firstmodalform">
+
       <Header showAnimation={false} mybgclass="#b03060" />
-      <div className="formImg col-md-6 mt-5 mb-5">
-        <img src="image/finalLogo.png" alt="" />
-      </div>
-      <form className="firstRegister col-md-5" onSubmit={handleSubmit}>
-        <div className="mb-3 col-lg-12">
-          <label className="form-label">First Name</label>
-          <input
-            type="text"
-            placeholder="fullName"
-            name="fullName"
-            value={formData.fullName}
-            onChange={handleChange}
-            className="form-control shadow-none"
-          />
-        </div>
-        <div className="mb-3 col-lg-12">
-          <label className="form-label">Email</label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="Email"
-            className="form-control  shadow-none "
-          />
-          {errors.email && <div className="text-danger">{errors.email}</div>}
-        </div>
-        <div className="mb-3 col-lg-12">
-          <label className="form-label">Phone</label>
-          <input
-            type="text"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            placeholder="Enter Phone"
-            className="form-control  shadow-none "
-          />
-          {errors.phone && <div className="text-danger">{errors.phone}</div>}
-        </div>
-        <div className="mb-3 col-lg-12">
-          <label className="form-label">Password</label>
-          <input
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            placeholder="Enter Password"
-            className="form-control  shadow-none "
-          />
-        </div>
-        <div className="mb-3 col-lg-12">
-          <label className="form-label">Confirm Password</label>
-          <input
-            type="password"
-            name="confirmPassword"
-            value={formData.confirmPassword}
-            onChange={handleChange}
-            placeholder="Confirm Password"
-            className="form-control  shadow-none "
-          />
-        </div>
-        <button type="submit" className="btn btn-primary">
-          Submit
-        </button>
 
-        <div>
-        <p className="text-center log mt-1">
-          Already have an account?
-          <Link to="/login">
-            <b>Log In</b>
-          </Link>
-        </p>
-        
-      </div>
-      </form>
+      <div className="imgform" style={{marginTop:"150px"}}>
 
-     
+        <div className="formImg col-md-7 col-11  mb-5">
+          <img src="image/finalLogo.png" id="ks"/>
+        </div>
+
+        <form className="firstRegister col-md-5 col-11 ms-3" onSubmit={handleSubmit}>
+          <div className="mb-2 col-lg-12">
+            <label className="form-label">First Name</label>
+            <input
+              type="text"
+              placeholder="FullName"
+              name="fullName"
+              value={formData.fullName}
+              onChange={handleChange}
+              className="form-control shadow-none"
+            />
+          </div>
+          <div className="mb-2 col-lg-12">
+            <label className="form-label">Email</label>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Email"
+              className="form-control  shadow-none "
+            />
+            {errors.email && <div className="text-danger">{errors.email}</div>}
+          </div>
+          <div className="mb-2 col-lg-12">
+            <label className="form-label">Phone</label>
+            <input
+              type="text"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              placeholder="Enter Phone"
+              className="form-control  shadow-none "
+            />
+            {errors.phone && <div className="text-danger">{errors.phone}</div>}
+          </div>
+          <div className="mb-2 col-lg-12">
+            <label className="form-label">Password</label>
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              placeholder="Enter Password"
+              className="form-control  shadow-none "
+            />
+          </div>
+          <div className="mb-2 col-lg-12">
+            <label className="form-label">Confirm Password</label>
+            <input
+              type="password"
+              name="confirmPassword"
+              value={formData.confirmPassword}
+              onChange={handleChange}
+              placeholder="Confirm Password"
+              className="form-control  shadow-none "
+            />
+          </div>
+          <button type="submit" className="btn btn-primary">
+            Submit
+          </button>
+
+          <div>
+            <p className="text-center log mt-1">
+              Already have an account?
+              <Link to="/login">
+                <b>Log In</b>
+              </Link>
+            </p>
+          </div>
+        </form>
+      </div>
+
     </div>
   );
 }

@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function ShaadhiFilter() {
   
@@ -30,7 +31,7 @@ export default function ShaadhiFilter() {
       <div className="fom1">
         {/* Gender */}
         <div className="d-flex flex-column">
-          <label className="form-label text-white">I'm looking for a</label>
+          <label className="form-label text-white">Gender</label>
           <select
             className="form-select"
             name="gender"
@@ -43,7 +44,7 @@ export default function ShaadhiFilter() {
         </div>
         {/* Age */}
         <div className="d-flex flex-column">
-          <label className="form-label text-white">Aged</label>
+          <label className="form-label text-white ">Aged</label>
           <div className="d-flex">
             <input
               type="number"
@@ -52,6 +53,7 @@ export default function ShaadhiFilter() {
               min={21}
               value={formData.minAge}
               onChange={handleChange}
+              placeholder="e.g. 21"
             />
             <span className="text-white ms-2 me-2">to</span>
             <input
@@ -61,6 +63,7 @@ export default function ShaadhiFilter() {
               min={21}
               value={formData.maxAge}
               onChange={handleChange}
+              placeholder="e.g. 28"
             />
           </div>
         </div>
@@ -79,9 +82,9 @@ export default function ShaadhiFilter() {
         </div>
       </div>
 
-      <div>
-        <button type="submit">Lets Begin</button>
-      </div>
+      
+        <Link className="btnS " type="submit" to="/register">Lets Begin</Link>
+      
     </form>
   );
 }

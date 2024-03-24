@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-undef */
 /* eslint-disable no-unused-vars */
 import "./App.css";
 import MyProfile from "./components/FullRegister/MyProfile";
@@ -22,8 +23,13 @@ import Admin from "./components/Admin/Admin.jsx";
 import { AdminLogin } from "./components/Admin/AdminLogin.jsx";
 import SearchPartner from "./components/Filter/SearchPartner.jsx";
 import PerfectMatch from "./components/Filter/PerfectMatch.jsx";
+import AlluserProfile from "./components/AlluserProfile.jsx";
+import Contact2 from "./components/Contact2.jsx";
+
+// import Saveprofile from "./components/Saveprofile.jsx";
 
 function App() {
+     
   return (
     <div>
       {/* <Header2 /> */}
@@ -51,10 +57,13 @@ function App() {
         <Route path="/recommendationall" element={<RecommandationAll />}/>
         <Route path="/singleprofile" element={<IndividualProfile />}/>
         <Route path="/ourplan" element={<OurPlans />}/>
+         <Route path="/alluserprofile" element={<AlluserProfile/>}/>
+       {/* <Route path="/saveprofile" element={<Saveprofile/>}/> */}
         <Route path="/admin" element={<Admin />} />
         <Route path="/adminlogin" element={<AdminLogin />} />
         <Route path="/searchpartner" element={<SearchPartner />} />
-        <Route path="/perfectmatch" element={<PerfectMatch />} />
+        <Route path="/acontact" element={<Contact2 />} />
+        
       </Routes>
       <Footer />
 

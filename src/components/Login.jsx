@@ -43,49 +43,55 @@ export function Login() {
 
   return (
     <div className="mycontainer firstmodalform">
+      
       <Header showAnimation={false} mybgclass="#b03060" />
-      <div className="formImg col-md-6 mt-5 mb-5">
-        <img src="image/finalLogo.png" alt="" />
-      </div>
-      <form className="firstRegister col-md-5" onSubmit={handleSubmit}>
-        <div className="mb-3 col-lg-12">
-          <label className="form-label">Email or Phone</label>
-          <input
-            type="text"
-            name="emailOrPhone"
-            value={formData.emailOrPhone}
-            onChange={handleChange}
-            placeholder="Email or Phone"
-            className="form-control shadow-none"
-          />
-          {errors.emailOrPhone && (
-            <div className="text-danger">{errors.emailOrPhone}</div>
-          )}
-        </div>
-        <div className="mb-3 col-lg-12">
-          <label className="form-label">Password</label>
-          <input
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            placeholder="Enter Password"
-            className="form-control shadow-none"
-          />
-        </div>
-        <button type="submit" className="btn btn-primary">
-          Submit
-        </button>
 
-        <div>
-          <p className="text-center log mt-1">
-            Don&#39;t have an account?
-            <Link to="/register">
-              <b>Register</b>
-            </Link>
-          </p>
+      <div className="imgform">
+
+        <div className="formImg col-md-7 col-11 mt-5 mb-5">
+          <img src="image/finalLogo.png" className="w-75" alt="" />
         </div>
-      </form>
+
+        <form className="firstRegister col-md-5 col-11" onSubmit={handleSubmit}>
+          <div className="mb-3 col-lg-12">
+            <label className="form-label">Email or Phone</label>
+            <input
+              type="text"
+              name="emailOrPhone"
+              value={formData.emailOrPhone}
+              onChange={handleChange}
+              placeholder="Email or Phone"
+              className="form-control shadow-none"
+            />
+            {errors.emailOrPhone && (
+              <div className="text-danger">{errors.emailOrPhone}</div>
+            )}
+          </div>
+          <div className="mb-3 col-lg-12">
+            <label className="form-label">Password</label>
+            <input
+              type="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              placeholder="Enter Password"
+              className="form-control shadow-none"
+            />
+          </div>
+          <button type="submit" className="btn btn-primary">
+            Submit
+          </button>
+
+          <div>
+            <p className="text-center log mt-1">
+              Don&#39;t have an account?
+              <Link to="/register">
+                <b>Register</b>
+              </Link>
+            </p>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }

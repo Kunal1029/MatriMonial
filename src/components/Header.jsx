@@ -1,18 +1,28 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
+import AlluserProfile from "./AlluserProfile";
+// import { AlluserProfile } from "./AlluserProfile";
 // import OurPlans from "./OurPlans";
 
-function Header({showAnimation , mybgclass}) {
+function Header({ showAnimation, mybgclass }) {
   const headerRef = useRef(null);
+
+  const [mynav, setMynav] = useState(false);
+
+  const mynavbar = () => {
+    setMynav(!mynav);
+  };
+
   const [prevScrollY, setPrevScrollY] = useState(0);
 
   useEffect(() => {
-    if(showAnimation){
+    if (showAnimation) {
       const handleScroll = () => {
         const currentScrollY = window.scrollY;
         const header = headerRef.current;
-  
+
         if (currentScrollY > 0) {
           if (prevScrollY < currentScrollY && currentScrollY > 630) {
             header.classList.remove("myheadercolor");
@@ -25,7 +35,7 @@ function Header({showAnimation , mybgclass}) {
             header.classList.remove("mt-4");
             header.hidden = false;
           }
-  
+
           setPrevScrollY(currentScrollY);
         } else {
           header.classList.remove("myheadercolor");
@@ -34,21 +44,23 @@ function Header({showAnimation , mybgclass}) {
           header.hidden = false;
         }
       };
-  
+
       window.addEventListener("scroll", handleScroll);
-  
+
       return () => {
         window.removeEventListener("scroll", handleScroll);
       };
     }
-    
-   
-  }, [prevScrollY , showAnimation]);
+  }, [prevScrollY, showAnimation]);
 
   return (
     <>
       {showAnimation}
-      <header ref={headerRef} className="container-fluid fixed-top" style={{backgroundColor:`${mybgclass}`}} >
+      <header
+        ref={headerRef}
+        className={`container-fluid fixed-top ${mynav ? "headertog" : ""}`}
+        style={{ backgroundColor: `${mybgclass}` }}
+      >
         <nav className="navbar navbar-expand-lg container">
           <div className="container-fluid">
             <div className="logoimg">
@@ -57,23 +69,38 @@ function Header({showAnimation , mybgclass}) {
               </Link>
             </div>
 
-            <div>
+            {/* <div> */}
+
+            <div className="">
               <button
-                className="navbar-toggler"
+                className={`navbar-toggler shadow-none menu-bars ${
+                  mynav ? "mynavtogchange" : ""
+                } `}
                 type="button"
+                onClick={mynavbar}
                 data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent"
                 aria-expanded="false"
                 aria-label="Toggle navigation"
+                id="menu-bars"
               >
-                <span className="navbar-toggler-icon"></span>
+                <div className="bar1"></div>
+                <div className="bar2"></div>
+                <div className="bar3"></div>
               </button>
+
               <div
-                className="collapse navbar-collapse"
+                className={`collapse ${
+                  mynav ? "mynavcollapsefull" : ""
+                }  navbar-collapse text-center`}
                 id="navbarSupportedContent"
               >
-                <ul className="navbar-nav mb-2 mb-lg-0 lato-regular">
+                <ul
+                  className={`navbar-nav   ${
+                    mynav ? "mynavcollapse" : ""
+                  }  mb-2 mb-lg-0 lato-regular`}
+                >
                   <li className="nav-item lato-bold menu">
                     <Link className="nav-link active text-light" to="/">
                       Home
@@ -89,33 +116,30 @@ function Header({showAnimation , mybgclass}) {
                       Contact
                     </Link>
                   </li>
-
-                  <li className="nav-item lato-bold menu">
-                    <Link className="nav-link active text-light"  to="/ourplan">
-                      Our Plans
-                    </Link>
-                  </li>
                 </ul>
 
                 {/* <!-- Button trigger modal --> */}
-                <Link
-                  type="button"
-                  className="btn btn btn-danger text-light"
-                  to="/login"
-                >
-                  Login
-                </Link>
+                <div className={`${mynav ? "mb-4":""}`}>
+                  <Link
+                    type="button"
+                    className="btn btn btn-danger ms-3 text-light"
+                    to="/login"
+                  >
+                    Login
+                  </Link>
 
-                <Link
-                  type="button"
-                  to="/register"
-                  className="btn btn btn-danger text-light ms-2"
-                >
-                  SignUp
-                </Link>
+                  <Link
+                    type="button"
+                    to="/register"
+                    className="btn btn btn-danger text-light ms-2"
+                  >
+                    SignUp
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
+          {/* </div> */}
         </nav>
       </header>
     </>
@@ -124,43 +148,45 @@ function Header({showAnimation , mybgclass}) {
 
 // <!-- Button trigger modal -->
 
-function Header2() {
+function Header2({ showAnimation2, mybgclass2 }) {
   const headerRef = useRef(null);
   const [prevScrollY, setPrevScrollY] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      const header = headerRef.current;
+    if (showAnimation2) {
+      const handleScroll = () => {
+        const currentScrollY = window.scrollY;
+        const header = headerRef.current;
 
-      if (currentScrollY > 0) {
-        if (prevScrollY < currentScrollY && currentScrollY > 630) {
+        if (currentScrollY > 0) {
+          if (prevScrollY < currentScrollY && currentScrollY > 630) {
+            header.classList.remove("myheadercolor");
+            header.classList.add("myheader");
+            header.classList.add("mt-4");
+            header.hidden = true;
+          } else {
+            header.classList.add("myheadercolor");
+            header.classList.add("myheader");
+            header.classList.remove("mt-4");
+            header.hidden = false;
+          }
+
+          setPrevScrollY(currentScrollY);
+        } else {
           header.classList.remove("myheadercolor");
           header.classList.add("myheader");
           header.classList.add("mt-4");
-          header.hidden = true;
-        } else {
-          header.classList.add("myheadercolor");
-          header.classList.add("myheader");
-          header.classList.remove("mt-4");
           header.hidden = false;
         }
+      };
 
-        setPrevScrollY(currentScrollY);
-      } else {
-        header.classList.remove("myheadercolor");
-        header.classList.add("myheader");
-        header.classList.add("mt-4");
-        header.hidden = false;
-      }
-    };
+      window.addEventListener("scroll", handleScroll);
 
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [prevScrollY]);
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }
+  }, [prevScrollY, showAnimation2]);
 
   return (
     <>
@@ -215,7 +241,10 @@ function Header2() {
                     </Link>
                   </li>
                   <li className="nav-item lato-bold menu">
-                    <Link className="nav-link active text-light" to="/recommendationall">
+                    <Link
+                      className="nav-link active text-light"
+                      to="/recommendationall"
+                    >
                       All Matches
                     </Link>
                   </li>
@@ -228,6 +257,7 @@ function Header2() {
                 </ul>
 
                 {/* <!-- Button trigger modal --> */}
+
                 <button
                   type="button"
                   className="border-0 home2btn p-2 px-3 rounded-pill text-light"
@@ -286,7 +316,9 @@ function Header2() {
                   <i className="fa-solid fa-plus ms-2 rounded-pill border border-white p-1"></i>
                 </Link>
               </div>
+              <AlluserProfile />
             </div>
+
             <div className="modal-footer">
               <button
                 type="button"

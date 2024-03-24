@@ -42,7 +42,7 @@ function SearchPartner() {
           {/* Gender */}
           <div className="d-flex flex-column">
             <label className="form-label text-white">I'm looking for a</label>
-            <select
+            <select 
               className="form-select"
               name="gender"
               value={formData.gender} //Add value attribute here
