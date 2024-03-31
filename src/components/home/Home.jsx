@@ -31,6 +31,9 @@ function Home() {
 
       {/* Recommandation */}
 
+      <Link to="/home2">home2
+      </Link>
+
       <div className="mt-5 mb-5">
         <Recommendation />
 
