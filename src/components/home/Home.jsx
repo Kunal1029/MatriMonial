@@ -33,6 +33,10 @@ function Home() {
 
       <Link to="/home2">home2
       </Link>
+      <Link to="/admin">admin login
+      </Link>
+      <Link to="/admindashboard">main admin
+      </Link>
 
       <div className="mt-5 mb-5">
         <Recommendation />
