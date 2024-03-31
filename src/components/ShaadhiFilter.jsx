@@ -3,14 +3,12 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function ShaadhiFilter() {
-  
   const [formData, setFormData] = useState({
-    gender: "",
+    gender: "",   
     minAge: "",
     maxAge: "",
     gotra: "",
   });
-
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -82,9 +80,9 @@ export default function ShaadhiFilter() {
         </div>
       </div>
 
-      
-        <Link className="btnS " type="submit" to="/register">Lets Begin</Link>
-      
+      <Link className="btnS " type="submit" to="/register">
+        Lets Begin
+      </Link>
     </form>
   );
 }

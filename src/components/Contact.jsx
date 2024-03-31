@@ -62,7 +62,7 @@ function Contact() {
 
           <form className="firstRegister col-lg-6 col-md-7 col-12" onSubmit={handleSubmit}>
             <div className="mb-3 ">
-              <label className="form-label text-white">First Name</label>
+              <label className="form-label text-white">Full Name</label>
               <input
                 type="text"
                 placeholder="e.g. John kumar"

@@ -1,9 +1,9 @@
 /* eslint-disable no-unused-vars */
-import Register from "../Register";
-import ShaadhiFilter from "../ShaadhiFilter";
+// import Register from "../Register";
+
 import { Header2 } from "../Header";
 import RecommendationDynamic from "../RecommendationDynamic";
-import RecommandationAll from "../RecommandationAll";
+// import RecommandationAll from "../RecommandationAll";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import SearchPartner from "../Filter/SearchPartner";
@@ -17,24 +17,10 @@ function Home2() {
   return (
     <>
       
-      <Header2 /> 
+      <Header2 showAnimation2={true} /> 
      
       <div className="container-fluid oneD text-center home2">
 
-        {/* <div className="col-md-6 home-2-search">
-          <form className="d-flex">
-            <input
-              className="form-control me-2"
-              type="search"
-              placeholder="Search"
-            />
-            <button className="btn btn-outline-success" type="submit">
-              <i className="fa-solid fa-magnifying-glass"></i>
-            </button>
-          </form>
-        </div> */}
-
-        {/* <!-- commenting searchbar --> */}
 
         <div className="hone w-100">
           <p className="lato-bold">Best Platform for Vaishy samaja shaadi</p>
@@ -46,63 +32,12 @@ function Home2() {
 
       </div>
 
-      {/* <Try /> */}
-      {/* modal */}
-
-      <button
-        hidden
-        type="button"
-        className="btn btn-primary"
-        data-bs-toggle="modal"
-        data-bs-target="#mymodal"
-      >
-        Launch demo modal
-      </button>
-
-      <div
-        className="modal fade"
-        id="mymodal"
-        aria-labelledby="mymodalLabel"
-        aria-hidden="true"
-      >
-        <div className="modal-dialog modal-dialog-centered">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h1 className="modal-title fs-5" id="mymodalLabel">
-                Why are You here ?
-              </h1>
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div className="modal-body">
-              Again I&rsquo;m asking Why are you asking here ?
-            </div>
-            <div className="modal-footer">
-              <button
-                type="button"
-                className="btn btn-secondary"
-                data-bs-dismiss="modal"
-              >
-                Close
-              </button>
-              <button type="button" className="btn btn-primary">
-                Save changes
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* modal end */}
 
       {/* Recommandation */}
 
       <div className="mt-5 mb-5">
         {/* <Recommendation /> */}
-        <RecommandationAll />
+        <RecommendationDynamic />
 
         <div className="recombtn">
           <Link
@@ -240,7 +175,7 @@ function Home2() {
       </div>
 
       <div className="text-center mb-5">
-        <Register text="Explore Our Plans" />
+        {/* <Register text="Explore Our Plans" /> */}
       </div>
     </>
   );

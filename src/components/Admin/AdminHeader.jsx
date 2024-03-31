@@ -81,11 +81,6 @@ function AdminHeader() {
                     </Link>
                   </li>
 
-                  <li className="nav-item lato-bold menu">
-                    <Link className="nav-link active text-light" to="/ourplan">
-                      Our Plans
-                    </Link>
-                  </li>
                 </ul>
               </div>
             </div>

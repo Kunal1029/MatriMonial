@@ -3,7 +3,7 @@ import "../assets/script/script";
 function Footer() {
   return (
     <>
-      <footer className="footer-dark container-fluid  ">
+      <footer className="footer-dark container-fluid w-100">
         <div className="container">
           <div className="row">
             <div className="col-sm-6 col-md-3 item">
@@ -48,15 +48,14 @@ function Footer() {
 
             <div className="col item social">
               <a href="#">
-              <i className="fa-brands fa-facebook"></i>
+                <i className="fa-brands fa-facebook"></i>
               </a>
               <a href="#">
-              <i className="fa-brands fa-instagram"></i>
+                <i className="fa-brands fa-instagram"></i>
               </a>
               <a href="#">
-              <i className="fa-brands fa-x-twitter" ></i>
+                <i className="fa-brands fa-x-twitter"></i>
               </a>
-              
             </div>
           </div>
 

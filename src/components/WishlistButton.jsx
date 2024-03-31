@@ -1,3 +1,4 @@
+/* eslint-disable no-irregular-whitespace */
 // function WishlistButton1() {
 //   return (
 //     <div>
@@ -18,34 +19,32 @@
 
 // import React from 'react'
 
-{
-  /* <div className="card-btn text-center mb-3">
-              <Link
-                to={/singleprofile?data=${card.Pro_id}}
-                onClick={handleClick}
-                id="myctn"
-                className={${isCtn ? "myctn" : "mybtn"}}
-              >
-               data-bs-toggle="modal"
-        data-bs-target="#deletemsg"
-                Delete
-              </Link>
-            </div> */
-  <button
-        type="button"
-        className="btn btn-primary"
-        data-bs-toggle="modal"
-        data-bs-target="#deletemsg"
-      >
-        Delete
-      </button>
-}
+// // {
+//   /* <div className="card-btn text-center mb-3">
+//               <Link
+//                 to={/singleprofile?data=${card.Pro_id}}
+//                 onClick={handleClick}
+//                 id="myctn"
+//                 className={${isCtn ? "myctn" : "mybtn"}}
+//               >
+//                data-bs-toggle="modal"
+//         data-bs-target="#deletemsg"
+//                 Delete
+//               </Link>
+//             </div> */
+// //   <button
+// //         type="button"
+// //         className="btn btn-primary"
+// //         data-bs-toggle="modal"
+// //         data-bs-target="#deletemsg"
+// //       >
+// //         Delete
+// //       </button>
+// // }
 
 function WishlistButton() {
   return (
     <div>
-      
-
       <div
         className="modal fade "
         id="deletemsg"
@@ -57,8 +56,10 @@ function WishlistButton() {
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
-
-              <button className="modal-title btn btn-danger fs-5" id="deletemsgLabel">
+              <button
+                className="modal-title btn btn-danger fs-5"
+                id="deletemsgLabel"
+              >
                 Warning ! You Lost All Data.
               </button>
 
@@ -68,11 +69,9 @@ function WishlistButton() {
                 data-bs-dismiss="modal"
                 aria-label="Close"
               ></button>
-
             </div>
             <div className="modal-body">Are You Sure ?</div>
             <div className="modal-footer">
-
               <button
                 type="button"
                 className="btn btn-secondary"
@@ -80,7 +79,6 @@ function WishlistButton() {
               >
                 Cancle
               </button>
-
 
               <button type="button" className="btn btn-primary">
                 Delete Confirm

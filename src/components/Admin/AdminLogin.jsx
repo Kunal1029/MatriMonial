@@ -1,6 +1,9 @@
+/* eslint-disable no-unused-vars */
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import AdminHeader from "./AdminHeader";
+import { saveAdminDetails } from "../userUtils";
+import axios from "axios";
 
 export function AdminLogin() {
   const [formData, setFormData] = useState({
@@ -35,7 +38,7 @@ export function AdminLogin() {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => { 
+  const handleSubmit = (e) => {
     e.preventDefault();
     // Clear form fields after submission
     setFormData({
@@ -47,54 +50,69 @@ export function AdminLogin() {
     // Save data in JSON format
     const jsonData = JSON.stringify(formData);
     console.log(jsonData, "hello"); // You can perform further actions with the JSON data
+    if (formData.emailOrPhone != "" && formData.password != "") {
+      axios
+        .post("http://localhost:3010/users/adminlogin", formData)
+        .then((response) => {
+          if (response.data.data.status) {
+            saveAdminDetails(response.data.data.response);
+            window.location.href = `/adminDashboard`; // Redirect to dashboard with params
+          } else {
+            window.location.href = `/admin`;
+            setErrors("Invalid email or password."); // Display error message
+          }
+        })
+        .catch(() => {
+          setErrors("An error occurred. Please try again."); // Display error message
+        });
+    } else {
+      window.location.href = `/admin`;
+    }
   };
 
   return (
     <>
-      <AdminHeader />
-      <div className="mycontainer firstmodalform">
-        <div className="formImg col-md-6 mt-5 mb-5">
-          <img src="image/finalLogo.png" alt="" />
-        </div>
-        <form className="firstRegister col-md-5" onSubmit={handleSubmit}>
-          <div className="mb-3 col-lg-12">
-            <label className="form-label">Admin Email or Phone</label>
-            <input
-              type="text"
-              name="emailOrPhone"
-              value={formData.emailOrPhone}
-              onChange={handleChange}
-              placeholder="Email or Phone"
-              className="form-control shadow-none"
-            />
-            {errors.emailOrPhone && (
-              <div className="text-danger">{errors.emailOrPhone}</div>
-            )}
-          </div>
-          <div className="mb-3 col-lg-12">
-            <label className="form-label">Admin Password</label>
-            <input
-              type="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              placeholder="Enter Password"
-              className="form-control shadow-none"
-            />
-          </div>
-          <button type="submit" className="btn btn-primary">
-            Submit
-          </button>
+        <AdminHeader />
+      <div className="firstmodalform">
 
-          <div>
-            <p className="text-center log mt-1">
-              Forget Password ?
-              <Link to="/register">
-                <b> Register</b>
-              </Link>
-            </p>
+        <div className="imgform mycontainer">
+          <div className="formImg col-md-7 col-11 mt-5 mb-5">
+            <img src="image/finalLogo.png" alt="" className="w-75" />
           </div>
-        </form>
+          <form
+            className="firstRegister col-md-5 col-11"
+            onSubmit={handleSubmit}
+          >
+            <div className="mb-3 col-lg-12">
+              <label className="form-label">Admin Email or Phone</label>
+              <input
+                type="text"
+                name="emailOrPhone"
+                value={formData.emailOrPhone}
+                onChange={handleChange}
+                placeholder="Email or Phone"
+                className="form-control shadow-none"
+              />
+              {errors.emailOrPhone && (
+                <div className="text-danger">{errors.emailOrPhone}</div>
+              )}
+            </div>
+            <div className="mb-3 col-lg-12">
+              <label className="form-label">Admin Password</label>
+              <input
+                type="password"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+                placeholder="Enter Password"
+                className="form-control shadow-none"
+              />
+            </div>
+            <button type="submit" className="btn btn-primary">
+              Submit
+            </button>
+          </form>
+        </div>
       </div>
     </>
   );

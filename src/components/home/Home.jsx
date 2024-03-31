@@ -4,6 +4,7 @@ import ShaadhiFilter from "../ShaadhiFilter";
 import { Header } from "../Header";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import PopUp1 from "./PopUp1";
 
 function Home() {
   const [isCtn, setIsCtn] = useState(true);
@@ -20,6 +21,8 @@ function Home() {
         <div className="hone w-100">
           <p className="lato-bold">Best Platform for Vaishy samaja shaadi</p>
         </div>
+
+        <PopUp1 />
 
         <div className="filter w-100 mt-2">
           <ShaadhiFilter />
@@ -65,9 +68,10 @@ function Home() {
             <div className="flip-card ">
               <div className="flip-card-inner">
                 <div className="flip-card-front">
-                  <h2 className="lato-light mt-3 text-danger">
+                  <div className="lato-light mt-3">
+                    <i className="fa-solid fa-id-card fa-2xl"></i> <br />
                     Complete Family Information
-                  </h2>
+                  </div>
                 </div>
 
                 <div className="flip-card-back">

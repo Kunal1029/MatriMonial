@@ -1,10 +1,16 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unescaped-entities */
 import { useState } from "react";
 // import Pay from "../../Pay";
 import Data from "../pin/Data";
 import Pay from "../../Pay";
-import BlankHeader2 from "../BlankHeader2";
 import OurPlans from "../OurPlans";
+import { Header2 } from "../Header";
+// import ForsendProp from "../Admin/ForsendProp";
+import { useEffect } from "react";
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
+import { Link } from "react-router-dom";
 
 function MainRegister() {
   const [step, setStep] = useState(1);
@@ -133,24 +139,28 @@ function MainRegister() {
     setStep(step - 1);
   };
 
+  const [timeoutStarted, setTimeoutStarted] = useState(false);
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateStep(step)) {
       // Submit formData to the backend or perform any other actions
       console.log("Form submitted:", formData);
+      // 
       // Reset form data and step state
       setFormData({
         // Candidate Basic Details
-
         name: "",
         dob: "",
         gender: "",
         address: "",
         phone: "",
         email: "",
-
         // Candidate Personal Details
-
         birthTime: "",
         gotra: "",
         birthPlace: "",
@@ -163,9 +173,7 @@ function MainRegister() {
         designation: "",
         candidateIncome: "",
         workPlace: "",
-
         // candidate family details
-
         fatherName: "",
         fatherMobile: "",
         fatherOccupation: "",
@@ -173,11 +181,29 @@ function MainRegister() {
         motherName: "",
         motherOccupation: "",
         familyAddress: "",
-
         //top
         image: "",
       });
       setStep(1);
+
+      // Start timeout to show modal after 2 seconds
+      const timeoutId = setTimeout(() => {
+        setTimeoutStarted(true);
+        setShow(true); // Launching the modal automatically when timeout starts
+      }, 1000); // 2 seconds
+
+      // Start another timeout to hide modal after 5 seconds
+      const hideTimeoutId = setTimeout(() => {
+        setTimeoutStarted(false);
+        setShow(false); // Hiding the modal after 5 seconds
+        window.location.href = "/home2";
+      }, 5000); // 7 seconds (2 seconds for showing modal + 5 seconds for hiding)
+
+      // Cleanup function for the timeouts
+      return () => {
+        clearTimeout(timeoutId);
+        clearTimeout(hideTimeoutId);
+      };
     }
   };
 
@@ -223,7 +249,7 @@ function MainRegister() {
 
   return (
     <div>
-      <BlankHeader2 />
+      <Header2 showAnimation2={false} mybgclass2="#b03060" />
 
       <div className="MainRegister mt-5">
         <div className="progress-bar">
@@ -234,8 +260,10 @@ function MainRegister() {
           <div className={`step ${step >= 3 ? "active" : ""}`}>3</div>
           <span className={`${step >= 4 ? "active" : ""}`}></span>
           <div className={`step ${step >= 4 ? "active" : ""}`}>4</div>
-          <span className={`${step >= 4 ? "active" : ""}`}></span>
+          <span className={`${step >= 5 ? "active" : ""}`}></span>
           <div className={`step ${step >= 5 ? "active" : ""}`}>5</div>
+          <span className={`${step >= 6 ? "active" : ""}`}></span>
+          <div className={`step ${step >= 6 ? "active" : ""}`}>6</div>
         </div>
 
         <form
@@ -481,9 +509,7 @@ function MainRegister() {
                     <option value="Up to 10th">Up to 10th</option>
                     <option value="Up to 12th">Up to 12th</option>
                     <option value="Graduate">Graduate</option>
-                    <option value="Post Graduate">
-                      Post Graduate
-                    </option>
+                    <option value="Post Graduate">Post Graduate</option>
                     <option value="Phd">PhD</option>
                     <option value="No">No</option>
                   </select>
@@ -541,21 +567,11 @@ function MainRegister() {
                     onChange={handleChange}
                   >
                     <option>Select</option>
-                    <option value="0 to 1 lakh">
-                      0 to 1 lakh
-                    </option>
-                    <option value="2 lakh to 3 lakh">
-                      2 lakh to 3 lakh
-                    </option>
-                    <option value="4 lakh to 5 lakh">
-                      4 lakh to 5 lakh
-                    </option>
-                    <option value="6 lakh to 7 lakh">
-                      6 lakh to 7 lakh
-                    </option>
-                    <option value="8 lakh to 9 lakh">
-                      8 lakh to 9 lakh
-                    </option>
+                    <option value="0 to 1 lakh">0 to 1 lakh</option>
+                    <option value="2 lakh to 3 lakh">2 lakh to 3 lakh</option>
+                    <option value="4 lakh to 5 lakh">4 lakh to 5 lakh</option>
+                    <option value="6 lakh to 7 lakh">6 lakh to 7 lakh</option>
+                    <option value="8 lakh to 9 lakh">8 lakh to 9 lakh</option>
                     <option value="10+ lakh">10+ lakh</option>
                   </select>
                 </div>
@@ -640,9 +656,7 @@ function MainRegister() {
                     <option>Select</option>
 
                     <option value="Salaried">Salaried</option>
-                    <option value="Self Employed">
-                      Self Employed
-                    </option>
+                    <option value="Self Employed">Self Employed</option>
                     <option value="Pension">Pension</option>
                     <option value="Retired">Retired</option>
                   </select>
@@ -658,21 +672,11 @@ function MainRegister() {
                     onChange={handleChange}
                   >
                     <option>Select</option>
-                    <option value="0 to 1 lakh">
-                      0 to 1 lakh
-                    </option>
-                    <option value="2 lakh to 3 lakh">
-                      2 lakh to 3 lakh
-                    </option>
-                    <option value="4 lakh to 5 lakh">
-                      4 lakh to 5 lakh
-                    </option>
-                    <option value="6 lakh to 7 lakh">
-                      6 lakh to 7 lakh
-                    </option>
-                    <option value="8 lakh to 9 lakh">
-                      8 lakh to 9 lakh
-                    </option>
+                    <option value="0 to 1 lakh">0 to 1 lakh</option>
+                    <option value="2 lakh to 3 lakh">2 lakh to 3 lakh</option>
+                    <option value="4 lakh to 5 lakh">4 lakh to 5 lakh</option>
+                    <option value="6 lakh to 7 lakh">6 lakh to 7 lakh</option>
+                    <option value="8 lakh to 9 lakh">8 lakh to 9 lakh</option>
                     <option value="10+ lakh">10+ lakh</option>
                   </select>
                 </div>
@@ -702,9 +706,7 @@ function MainRegister() {
 
                     <option value="House Wife">HouseWife</option>
                     <option value="Pension">Pension</option>
-                    <option value="Self Employed">
-                      Self Employed
-                    </option>
+                    <option value="Self Employed">Self Employed</option>
                     <option value="Retired">Retired</option>
                   </select>
                 </div>
@@ -749,14 +751,16 @@ function MainRegister() {
           {step === 4 && (
             <div>
               <h2 className="mt-5 mb-5">Candiate Photo</h2>
-              <input
-                type="file"
-                name="image"
-                value={formData.image}
-                onChange={handleChange}
-                placeholder="image"
-              />
 
+              <div className="myphoto ">
+                <input
+                  type="file"
+                  name="image"
+                  value={formData.image}
+                  onChange={handleChange}
+                  placeholder="image"
+                />
+              </div>
               <div className="mt-5">
                 <input type="checkbox" id="declarationAgreement" required />
                 <label htmlFor="declarationAgreement">
@@ -778,12 +782,12 @@ function MainRegister() {
 
               {/* <!-- Modal --> */}
               <div
-                className="modal fade"
+                className="modal fade "
                 id="exampleModal"
                 aria-labelledby="exampleModalLabel"
                 aria-hidden="true"
               >
-                <div className="modal-dialog">
+                <div className="modal-dialog modal-dialog-centered modal-xl">
                   <div className="modal-content">
                     <div className="modal-header">
                       <h1 className="modal-title fs-5" id="exampleModalLabel">
@@ -920,7 +924,7 @@ function MainRegister() {
                         className="btn btn-secondary"
                         data-bs-dismiss="modal"
                       >
-                        Close
+                        I understand
                       </button>
                     </div>
                   </div>
@@ -942,19 +946,20 @@ function MainRegister() {
 
           {step === 5 && (
             <div className="summary mt-5">
-            <h2 className="text-center mt-5 mb-5 ">Please Check All Deatails are Corrected.</h2>
+              <h2 className="text-center mt-5 mb-5 ">
+                Please Check All Deatails are Corrected.
+              </h2>
 
-              <div className="mb-5 d-flex align-item-center gap-3 justify-content-center">
-                <div className="">
-                  <img className="w-50" src="./image/salman.jpg" />
-                  {/* image logic */}
+              <div className="mb-5 ">
+                <div className="lastimg text-center mb-5">
+                  <img className="w-75" src="./image/salman.jpg" />
                 </div>
 
                 <div className="basic-detail-box">
                   <h3>Candidate basic details</h3>
                   <ul>
                     <li>Name: {formData.name} </li>
-                    <li>DOB: {formData.dob}  </li>
+                    <li>DOB: {formData.dob} </li>
                     <li>Gender: {formData.gender} </li>
                     <li>Address: {formData.address} </li>
                     <li>Phone: {formData.phone} </li>
@@ -963,28 +968,28 @@ function MainRegister() {
                 </div>
               </div>
 
-              <div className="d-flex mt-5 mb-5 align-item-center gap-3 justify-content-between">
-                <div className="personal-detail-box">
+              <div className="d-flex-lg mt-5 mb-5 align-item-center gap-3 justify-content-between">
+                <div className="personal-detail-box mb-5">
                   <h3>candidate personal details</h3>
                   <ul>
                     <li>Birth Time: {formData.birthTime} </li>
-                    <li>Gotra:  {formData.gotra} </li>
-                    <li>Birth Place:  {formData.birthPlace} </li>
-                    <li>Height:  {formData.height} </li>
-                    <li>Body Type:  {formData.bodyType} </li>
-                    <li>Complexion:  {formData.color} </li>
-                    <li>Qualification:  {formData.qualification} </li>
-                    <li>Degree:  {formData.degree} </li>
-                    <li>Occupation:  {formData.occupation} </li>
-                    <li>Designation:  {formData.designation} </li>
+                    <li>Gotra: {formData.gotra} </li>
+                    <li>Birth Place: {formData.birthPlace} </li>
+                    <li>Height: {formData.height} </li>
+                    <li>Body Type: {formData.bodyType} </li>
+                    <li>Complexion: {formData.color} </li>
+                    <li>Qualification: {formData.qualification} </li>
+                    <li>Degree: {formData.degree} </li>
+                    <li>Occupation: {formData.occupation} </li>
+                    <li>Designation: {formData.designation} </li>
                     <li>Candidate Income : {formData.candidateIncome}</li>
-                    <li>Work Place:  {formData.workPlace} </li>
+                    <li>Work Place: {formData.workPlace} </li>
                   </ul>
                 </div>
 
                 <div className="family-detail-box ">
                   <h3>candidate Family details</h3>
-                  <ul className="ms-5">
+                  <ul className="">
                     <li>Father Name : {formData.fatherName} </li>
                     <li>Father Mob : {formData.fatherMobile}</li>
                     <li>Father Occupation : {formData.fatherOccupation}</li>
@@ -1008,8 +1013,8 @@ function MainRegister() {
 
           {step === 6 && (
             <div>
-              <div className="payment mt-5 mb-5 col-md-4">
-                <Pay />
+              <div className="payment mt-5 mb-5">
+                <Pay pricing={100} />
               </div>
 
               <button type="button" onClick={handlePrevious}>
@@ -1020,6 +1025,30 @@ function MainRegister() {
             </div>
           )}
         </form>
+
+        <Modal
+          show={show}
+          onHide={handleClose}
+          size="lg"
+          centered
+          animation={true}
+          // className={show ? "modal fade show" : "modal fade"}
+        >
+          
+          <Modal.Body>
+            <h1 className="poph1 mt-4 mb-3 ">
+            Thank you for registering. Your profile will verify within 24 hours.
+            </h1>
+          </Modal.Body>
+          <Modal.Footer>
+            <Link variant="info" className="btn btn-success" to="/home2" onClick={handleClose}>
+              Ok
+            </Link>
+            {/* <Button variant="primary" onClick={handleClose}>
+            Save Changes
+          </Button> */}
+          </Modal.Footer>
+        </Modal>
       </div>
     </div>
   );

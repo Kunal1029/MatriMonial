@@ -1,12 +1,13 @@
-import  { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 function Recommendation() {
-   
-  const [screenWidth , setscreenWidth] = useState(window.innerWidth <= 770 ? 1 : 3)
+  const [screenWidth, setscreenWidth] = useState(
+    window.innerWidth <= 770 ? 1 : 3
+  );
 
   useEffect(() => {
     const handleResize = () => {
@@ -19,7 +20,7 @@ function Recommendation() {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }); 
+  });
 
   const settings = {
     dots: false,
@@ -38,19 +39,18 @@ function Recommendation() {
     { id: 6, name: "Popat Bandil", age: 49, isWish: false, image: "popat" },
   ]);
 
-
-  useEffect(() => {
-    // Fetch data from the server
-    fetch("your_api_endpoint")
-      .then((response) => response.json())
-      .then((data) => {
-        // Update the state with the fetched data
-        setCards(data);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-  }, []);
+  // useEffect(() => {
+  //   // Fetch data from the server
+  //   fetch("your_api_endpoint")
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       // Update the state with the fetched data
+  //       setCards(data);
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error fetching data:", error);
+  //     });
+  // }, []);
 
   const toggleWish = (id) => {
     setCards((prevCards) =>
@@ -63,8 +63,11 @@ function Recommendation() {
   return (
     <div className="mycontainer recom">
       <h3 className="mb-5">Recommendations..</h3>
-      
-      <Slider {...settings} className={`${screenWidth === 1 ? "w-75 ms-5" :""}`}>
+
+      <Slider
+        {...settings}
+        className={`${screenWidth === 1 ? "w-75 ms-5" : ""}`}
+      >
         {cards.map((card) => (
           <div key={card.id} className="recomCard  ">
             <div className="card col-12 ShowfullCard  border border-2">
@@ -94,8 +97,8 @@ function Recommendation() {
               <div className="card-btn text-center mb-3">
                 <Link
                   to="/register"
-                  className="btn btn-light" style={{color:"#B03060"}}
-
+                  className="btn btn-light"
+                  style={{ color: "#B03060" }}
                 >
                   More details..
                 </Link>
